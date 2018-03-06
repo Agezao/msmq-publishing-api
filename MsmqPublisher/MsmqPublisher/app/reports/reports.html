@@ -1,0 +1,54 @@
+﻿<section id="reports-view" class="mainbar" data-ng-controller="reports as vm">
+    <section class="matter">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="widget wviolet">
+                        <div data-cc-widget-header title="Fake report data"
+                             allow-collapse="true"></div>
+                        <div class="widget-content text-center text-info">
+                            <table class="table table-condensed table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Age</th>
+                                        <th>Location</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr data-ng-repeat="p in vm.people">
+                                        <td>{{p.firstName}}</td>
+                                        <td>{{p.lastName}}</td>
+                                        <td>{{p.age}}</td>
+                                        <td>{{p.location}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="widget-foot">
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="widget wgreen">
+                        <div data-cc-widget-header title="Genrate Reports"
+                             allow-collapse="true"></div>
+                        <div class="widget-content text-info">
+                            <div ng-repeat="reportType in vm.reportOptions">
+                                <input type="checkbox" id="{{reportType.description}}" ng-model="reportType.checked" />
+                                <label for="{{reportType.description}}">{{reportType.description}}</label>
+                            </div>
+                        </div>
+                        <div class="widget-foot">
+                            <div class="clearfix">
+                                <input type="button" class="btn btn-primary" ng-click="vm.requestReports()" value="Generate Reports (send to MSMQ)" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
